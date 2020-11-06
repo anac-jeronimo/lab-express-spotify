@@ -26,18 +26,19 @@ const spotifyApi = new SpotifyWebApi({
     .catch(error => console.log('Something went wrong when retrieving an access token', error));
 // Our routes go here:
 
-
+//Entry point for our app
 app.get('/', (req, res) => {
     res.render('index');
 })
 
 app.get('/artist-search', (req, res) => {
+  let artistName = req.query.artist;    //its req.query because it comes from a form
     spotifyApi
-  .searchArtists(req.query.artist)
+  .searchArtists(artistName)  //beatles, roling stones...  
   .then(data => {
     console.log('The received data from the API: ', data.body);
     let result = data.body.artists.items;
-    res.render('artist-search-results', {result});
+    res.render('artist-search-results', {result: result});
 
     // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
   })
@@ -45,7 +46,27 @@ app.get('/artist-search', (req, res) => {
     
 })
 
+app.get('/albums/:id', (req, res) => {
+  // .getArtistAlbums() code goes here
+  spotifyApi
+  .getArtistAlbums(req.params.id) //use route params when using a link href
+  .then(data => {
+  //  console.log('Received Album from the API', data.body.items);
+    let searchAlbumsResult = data.body.items;
+    res.render('albums', {albums: searchAlbumsResult});
+  })
+  .catch(err => console.log('Error while retrieving albums', err));
+});
 
+app.get('/tracks/:albumId', (req, res) => {
+  let albumId = req.params.albumId;   //route params because its a link
+  spotifyApi
+  .getAlbumTracks(albumId)
+  .then(data => {
+    //console.log('response from grtAlbumsTracks', data.body);
+    res.render('tracks', {tracks: data.body.items});
+  })
+})
 
 
 

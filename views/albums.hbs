@@ -1,0 +1,17 @@
+
+        <h1>Albums for </h1>
+
+        <ul> 
+        {{#each albums }}
+
+        <li> 
+        <h5> {{name}}</h5>
+      
+        <img class="img" src="{{images.[1].url}}"/>  <!--the number inside [] makes the images smaller, 2 is smaller then 1 -->
+         <a href="/tracks/{{id}}">View Tracks</a>
+        </li>
+                {{/each}}
+
+         </ul>
+
+   

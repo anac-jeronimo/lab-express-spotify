@@ -1,0 +1,14 @@
+<h3>Tracks</h3>
+
+<ul>
+{{#each tracks}}
+    <li> 
+        {{name}}
+      <audio controls>
+  <source src="{{preview_url}}">
+</audio>
+    </li>
+
+{{/each}}
+
+</ul>
