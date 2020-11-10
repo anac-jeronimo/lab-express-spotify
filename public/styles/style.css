@@ -1,0 +1,50 @@
+
+.form-background{
+    width:100%;
+    height:950px;
+    background-image: url("/images/spotify-background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+.opacity-box{
+    position: absolute;
+    top:40%;
+    left:30%;
+    width: 700px;
+    height:300px;
+    background-color:#ffffff;
+    opacity:0.6;
+    
+}
+.input-wrapper>button{
+    display: inline;
+    margin-top: 10px;
+    background-color: rgb(197, 28, 28);
+    height:50px;
+    width:250px;
+    color:white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 4px;
+    border-style: none;
+    
+}
+.input-wrapper{
+    position: absolute;
+    left:35%;
+    top:55%;
+    text-align: center;
+    align-items: center;
+    
+    
+}
+.input-wrapper>input{
+    display: block;
+    width:500px;
+    height: 50px;
+    background-color: white;
+    border-style: none;
+    box-shadow: 1px 1px 2px 2px gray;
+    
+}

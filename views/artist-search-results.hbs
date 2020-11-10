@@ -1,15 +1,11 @@
     <h1>Artists found list</h1>
-
-        <ul>    
-
+        <ul>         
             {{#each result }}
-            <li>
-            
-            <h5> {{name}}</h5>
-        
-            <img class="img" src="{{images.[1].url}}"/>
-            <a href="/albums/{{id}}">View Albums</a>
-            </li>
-        
-                    {{/each}}
+                <li>               
+                    <h5> {{name}}</h5>            
+                    <img class="img" src="{{images.[1].url}}"/>
+                    <a href="/albums/{{id}}">View Albums</a>
+                </li>
+            {{/each}}                     
         </ul>
+   
